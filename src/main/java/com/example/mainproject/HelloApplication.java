@@ -1,70 +1,110 @@
 package com.example.mainproject;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
+    private Stage stage;
 
     @Override
-    public void start(Stage primaryStage) {
-        // Membuat konten di dalam ScrollPane
-        VBox content = new VBox();
-        for (int i = 1; i <= 20; i++) {
-            Label label = new Label("Label " + i);
-            content.getChildren().add(label);
-        }
+    public void start(Stage Stage) throws Exception{
+        stage = Stage;
+        stage.setTitle("MACHealth");
 
-        // Membuat ScrollPane dan mengatur kontennya
-        ScrollPane scrollPane = new ScrollPane(content);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setFitToHeight(true);
+        sceneLogin();
 
-        // Membuat scene dengan ScrollPane sebagai root node
-        Scene scene = new Scene(scrollPane, 400, 300);
+        stage.show();
 
-        primaryStage.setTitle("Scrollable Scene Example");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
-    public static void sceneLogin(){
-        System.out.println("Login");
+    private void sceneLogin(){
+        Label label = new Label("MACHealth");
+
+        TextField tfUsername = new TextField();
+        tfUsername.setPromptText("Username");
+
+        TextField tfPassword = new TextField();
+        tfPassword.setPromptText("Password");
+
+        Button login = new Button("LOGIN");
+        login.requestFocus();
+        login.setOnAction(event -> {
+            if (tfUsername.getText() != null && tfPassword.getText() != null){
+                dashboard();
+            }
+        });
+
+        Button register = new Button("REGISTER");
+        register.setOnAction(event -> {regNameTB();});
+
+        VBox vBox = new VBox(20);
+        vBox.getChildren().addAll(label,tfUsername,tfPassword,login,register);
+        vBox.setAlignment(Pos.CENTER);
+
+        Scene scene = new Scene(vBox, 400,500);
+
+        stage.setScene(scene);
+        vBox.requestFocus();
+
     }
-    public static void regNameTB(){
-        System.out.println("Nama, Umur, TB, BB");
-        VBox1.addall(lNU, tfNama, tfUmur, btnNU);
+    private void regNameTB(){
         Label lNU = new Label("Nama dan Umur");
+
         TextField tfNama = new TextField();
         tfNama.setPromptText("Nama");
+
         TextField tfUmur = new TextField();
-        tfNama.setPromptText("Umur");
+        tfUmur.setPromptText("Umur");
+
         Button btnNU = new Button("Lanjutkan");
+        btnNU.setOnAction(event -> {regTekananDarah();});
+
+        TextField berat = new TextField();
+        berat.setPromptText("Berat");
+        TextField tinggi = new TextField();
+        tinggi.setPromptText("Tinggi");
+
+        HBox hBox = new HBox(10);
+        hBox.getChildren().addAll(berat,tinggi);
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(lNU, tfNama, tfUmur,hBox,btnNU);
+        vBox.setAlignment(Pos.CENTER);
+
+        Scene root = new Scene(vBox,300,300);
+        stage.setScene(root);
+        vBox.requestFocus();
+
     }
-    public static void regTekananDarah(){
-        System.out.println("Tekanan Darah");
-        VBox2.addall(lTekDar, tfTekDar, btnTekDar);
+    private void regTekananDarah(){
         Label lTekDar = new Label("Tekanan Darah");
         TextField tfTekDar = new TextField();
         Button btnTekDar = new Button("Lanjutkan");
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(lTekDar,tfTekDar,btnTekDar);
     }
-    public static void regGulaDarah(){
-        System.out.println("Gula Darah");
-        VBox3.addall(lGulDar, tfGulDar, btnGulDar);
+    private void regGulaDarah(){
         Label lGulDar = new Label("Gula Darah");
         TextField tfGulDar = new TextField();
         Button btnGulDar = new Button("Lanjutkan");
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(lGulDar,tfGulDar,btnGulDar);
     }
-    public static void regKonsumsi(){
-        System.out.println("Konsumsi Air");
-        VBox4.addall(btnMinum, btnKA);
+    private void regKonsumsi(){
         Button btnMinum = new Button("Minum");
         Button btnKA = new Button("Lanjutkan");
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(btnMinum,btnKA);
     }
     public static void dashboard(){
         System.out.println("DashBoard");
