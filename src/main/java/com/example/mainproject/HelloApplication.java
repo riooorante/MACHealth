@@ -3,12 +3,24 @@ package com.example.mainproject;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.example.mainproject.ChartClass.diagram;
 
 public class HelloApplication extends Application {
     private Stage stage;
@@ -168,16 +180,51 @@ public class HelloApplication extends Application {
         Scene root = new Scene(vBox, 490, 800);
         stage.setScene(root);
     }
-    public static void dashboard(){
-        System.out.println("DashBoard");
+
+    private void dashboard() {
+        Image image = new Image("/Main.png");
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+
+        Label labelNama = new Label("Mario");
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(imageView, labelNama);
+        vBox.setAlignment(Pos.CENTER);
+
+        Rectangle rectangle = new Rectangle(490, 200);
+
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(rectangle, vBox);
+        stackPane.setAlignment(Pos.TOP_CENTER);
+
+        Button minum = new Button("Minum");
+        Button jantung = new Button("Jantung");
+        Button gulaDarah = new Button("Gula Darah");
+        Button TBBB = new Button("TBBB");
+        Button summary = new Button("Summary");
+
+        List<Double> minumlist = Arrays.asList(1.0,3.0,5.0,2.0);
+
+        VBox vBox1 = new VBox(10);
+        vBox1.getChildren().addAll(stackPane, diagram(minumlist), minum, jantung, gulaDarah, TBBB, summary);
+        vBox1.setAlignment(Pos.CENTER);
+
+        Scene root = new Scene(vBox1, 490, 800);
+        stage.setScene(root);
+
     }
-    public static void tekananDarah(){
+
+    public static void tekananDarah() {
         System.out.println("Tekanan Darah");
     }
-    public static void gulaDarah(){
+
+    public static void gulaDarah() {
         System.out.println("Gula Darah");
     }
-    public static void konsumsiAir(){
+
+    public static void konsumsiAir() {
         System.out.println("Konsumsi Air");
     }
     public static void TBBB(){
