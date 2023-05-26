@@ -5,7 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -33,28 +32,50 @@ public class HelloApplication extends Application {
         TextField tfPassword = new TextField();
         tfPassword.setPromptText("Password");
 
+        Label label1 = new Label();
         Button login = new Button("LOGIN");
         login.requestFocus();
         login.setOnAction(event -> {
-            if (tfUsername.getText() != null && tfPassword.getText() != null){
+            if (!tfUsername.getText().isBlank() && !tfUsername.getText().isBlank()) {
                 dashboard();
+            } else {
+                label1.setText("Username atau Password Tidak Boleh Kosong");
             }
         });
 
         Button register = new Button("REGISTER");
-        register.setOnAction(event -> {regNameTB();});
+        register.requestFocus();
+        register.setOnAction(event -> {
+            regNameTB();
+        });
+
+        tfUsername.setOnKeyPressed(event -> {
+            if (event.getCode().toString().equals("ENTER")){
+                tfPassword.requestFocus();
+            }
+        });
+
+        tfPassword.setOnKeyPressed(event -> {
+            if (event.getCode().toString().equals("ENTER")){
+                login.requestFocus();
+            }
+        });
+
+        HBox hBox = new HBox(30);
+        hBox.getChildren().add(label1);
+        hBox.setAlignment(Pos.BOTTOM_CENTER);
 
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(label,tfUsername,tfPassword,login,register);
+        vBox.getChildren().addAll(label, tfUsername, tfPassword, login, register, label1);
         vBox.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(vBox, 400,500);
+        Scene scene = new Scene(vBox, 490, 800);
 
         stage.setScene(scene);
         vBox.requestFocus();
 
     }
-    private void regNameTB(){
+    private void regNameTB() {
         Label lNU = new Label("Nama dan Umur");
 
         TextField tfNama = new TextField();
@@ -63,48 +84,89 @@ public class HelloApplication extends Application {
         TextField tfUmur = new TextField();
         tfUmur.setPromptText("Umur");
 
-        Button btnNU = new Button("Lanjutkan");
-        btnNU.setOnAction(event -> {regTekananDarah();});
-
         TextField berat = new TextField();
         berat.setPromptText("Berat");
         TextField tinggi = new TextField();
         tinggi.setPromptText("Tinggi");
 
+        Label warnLabel = new Label();
+        Button btnNU = new Button("Lanjutkan");
+        btnNU.setOnAction(event -> {
+            if (!tfNama.getText().isBlank() && !tfUmur.getText().isBlank() && !berat.getText().isBlank() && !tinggi.getText().isBlank()) {
+                regTekananDarah();
+            } else {
+                warnLabel.setText("Lengkapi Data");
+            }
+        });
+
         HBox hBox = new HBox(10);
-        hBox.getChildren().addAll(berat,tinggi);
+        hBox.getChildren().addAll(berat, tinggi);
+        hBox.setAlignment(Pos.CENTER);
 
         VBox vBox = new VBox(10);
-        vBox.getChildren().addAll(lNU, tfNama, tfUmur,hBox,btnNU);
+        vBox.getChildren().addAll(lNU, tfNama, tfUmur, hBox, btnNU, warnLabel);
         vBox.setAlignment(Pos.CENTER);
 
-        Scene root = new Scene(vBox,300,300);
+        Scene root = new Scene(vBox, 490, 800);
         stage.setScene(root);
         vBox.requestFocus();
 
     }
-    private void regTekananDarah(){
+    private void regTekananDarah() {
         Label lTekDar = new Label("Tekanan Darah");
         TextField tfTekDar = new TextField();
+
+        Label warnLabel = new Label();
         Button btnTekDar = new Button("Lanjutkan");
+        btnTekDar.setOnAction(event -> {
+            if (!tfTekDar.getText().isBlank()) {
+                regGulaDarah();
+            }else {
+                warnLabel.setText("Lengkapi Data");
+            }
+        });
 
         VBox vBox = new VBox(10);
-        vBox.getChildren().addAll(lTekDar,tfTekDar,btnTekDar);
+        vBox.getChildren().addAll(lTekDar, tfTekDar, btnTekDar,warnLabel);
+        vBox.setAlignment(Pos.CENTER);
+
+        Scene root = new Scene(vBox, 490, 800);
+        stage.setScene(root);
     }
-    private void regGulaDarah(){
+    private void regGulaDarah() {
         Label lGulDar = new Label("Gula Darah");
         TextField tfGulDar = new TextField();
+
+        Label warnLabel = new Label();
         Button btnGulDar = new Button("Lanjutkan");
+        btnGulDar.setOnAction(event -> {
+            if (!tfGulDar.getText().isBlank()) {
+                        regKonsumsi();
+            } else {
+                warnLabel.setText("Lengkapi Data");
+            }
+        });
 
         VBox vBox = new VBox(10);
         vBox.getChildren().addAll(lGulDar,tfGulDar,btnGulDar);
-    }
-    private void regKonsumsi(){
+        vBox.setAlignment(Pos.CENTER);
+
+        Scene root = new Scene(vBox, 490, 800);
+        stage.setScene(root);
+        }
+    private void regKonsumsi() {
         Button btnMinum = new Button("Minum");
         Button btnKA = new Button("Lanjutkan");
+        btnKA.setOnAction(event -> {
+            dashboard();
+        });
 
         VBox vBox = new VBox(10);
-        vBox.getChildren().addAll(btnMinum,btnKA);
+        vBox.getChildren().addAll(btnMinum, btnKA);
+        vBox.setAlignment(Pos.CENTER);
+
+        Scene root = new Scene(vBox, 490, 800);
+        stage.setScene(root);
     }
     public static void dashboard(){
         System.out.println("DashBoard");
