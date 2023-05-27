@@ -1,0 +1,37 @@
+.root{
+    -fx-background-color: #231f1f;
+
+}
+
+#label1 {
+    -fx-font-size:30;
+    -fx-font-weight:bold;
+    -fx-text-fill:#fff;
+}
+
+Button {
+    -fx-background-color: #373434;
+	-fx-text-fill: #fff;
+	-fx-min-width: 100px;
+	-fx-min-height: 80px;
+	-fx-max-width: 300px;
+	-fx-max-height: 150px;
+	-fx-font-size: 20px;
+    -fx-font-weight:bold;
+}
+   
+Rectangle{
+    -fx-background-color: #5b5252;
+}
+TextField {
+	-fx-min-width: 100px;
+	-fx-min-height: 40px;
+	-fx-max-width: 200px;
+	-fx-max-height: 80px;
+	-fx-font-size: 18px;
+}
+Label {
+	-fx-text-fill: #fff;
+	-fx-font-size: 18px;
+}
+

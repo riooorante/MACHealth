@@ -18,6 +18,8 @@ public class ChartClass {
             series.getData().add(new XYChart.Data<>(i++, doubles.get(i)));
         }
         lineChart.getData().add(series);
+        lineChart.setPrefSize(200,300);
+        yAxis.setTickLabelsVisible(false);
         return lineChart;
     }
 }

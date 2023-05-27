@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;Add registration scenes feature&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/ChartClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Styling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/ChartClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/ChartClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +68,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Programming/Java/MACHealth"
+    "last_opened_file_path": "D:/Programming/Java/Kalkulator/src/main/java/com/example/kalkulator/HelloApplication.java"
   }
 }]]></component>
   <component name="RunManager">
@@ -115,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685063034729</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;Add registration scenes feature&quot;">
+      <created>1685108154680</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685108154680</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
