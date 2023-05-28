@@ -1,32 +1,58 @@
 .root{
-    -fx-background-color: #231f1f;
-
+    -fx-background-color: #10110e;
 }
 
 #label1 {
-    -fx-font-size:30;
+    -fx-font-size:10;
     -fx-font-weight:bold;
     -fx-text-fill:#fff;
+}
+#Loginbutton{
+	-fx-background-color: #f07a3a;
+	-fx-text-fill: #ffffff;
+	-fx-min-width: 20px;
+	-fx-min-height: 20px;
+	-fx-max-width: 200px;
+	-fx-max-height: 150px;
+	-fx-font-size: 15px;
+
+}
+
+#rectangle{
+	-fx-background-color: rgb(233, 246, 255);
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+#tfREG{
+	-fx-min-width: 40px;
+	-fx-min-height: 40px;
+	-fx-max-width: 350px;
+	-fx-max-height: 350px;
+}
+#TBBB{
+	-fx-min-width: 40px;
+	-fx-min-height: 40px;
+	-fx-max-width: 171.5px;
+	-fx-max-height: 175px;
 }
 
 Button {
     -fx-background-color: #373434;
 	-fx-text-fill: #fff;
-	-fx-min-width: 100px;
-	-fx-min-height: 80px;
-	-fx-max-width: 300px;
+	-fx-min-width: 20px;
+	-fx-min-height: 20px;
+	-fx-max-width: 200px;
 	-fx-max-height: 150px;
 	-fx-font-size: 20px;
     -fx-font-weight:bold;
 }
    
 Rectangle{
-    -fx-background-color: #5b5252;
+    -fx-background-color: #22333e;
 }
 TextField {
 	-fx-min-width: 100px;
 	-fx-min-height: 40px;
-	-fx-max-width: 200px;
+	-fx-max-width: 300px;
 	-fx-max-height: 80px;
 	-fx-font-size: 18px;
 }
