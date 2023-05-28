@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.util.Arrays;
 
-import static com.example.mainproject.ChartClass.dashRectangle;
+import static com.example.mainproject.Elemen.dashRectangle;
 
 public class APP extends Application {
     private Stage stage;

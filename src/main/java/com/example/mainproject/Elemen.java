@@ -9,10 +9,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class ChartClass {
+public class Elemen {
     public static LineChart<Number, Number> diagram(List<Double> doubles) {
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
