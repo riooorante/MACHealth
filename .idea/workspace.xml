@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;Add registration scenes feature&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MACHealth.db" afterDir="false" />
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;Styling with CSS&quot;">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/ChartClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/ChartClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685108154680</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&quot;Add registration scenes feature&quot;">
+      <created>1685289021225</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685289021225</updated>
+    </task>
+    <task id="LOCAL-00006" summary="&quot;Styling with CSS&quot;">
+      <created>1685289092536</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685289092536</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -143,7 +153,8 @@
     <MESSAGE value="&quot;Add Scene Methods&quot;" />
     <MESSAGE value="&quot;Add login page feature&quot;" />
     <MESSAGE value="&quot;Add registration scenes feature&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Add registration scenes feature&quot;" />
+    <MESSAGE value="&quot;Styling with CSS&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Styling with CSS&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

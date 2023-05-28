@@ -25,7 +25,7 @@ public class APP extends Application {
     public void start(Stage Stage) throws Exception {
         stage = Stage;
         stage.setTitle("MACHealth");
-        regNameTB();
+        dashboard();
         stage.show();
     }
 
@@ -54,7 +54,7 @@ public class APP extends Application {
         register.setId("Loginbutton");
         register.requestFocus();
         register.setOnAction(event -> {
-            regNameTB();
+            regmaindata();
         });
 
         tfUsername.setOnKeyPressed(event -> {
@@ -91,7 +91,7 @@ public class APP extends Application {
         vBox.requestFocus();
 
     }
-    private void regNameTB() {
+    private void regmaindata() {
         Label lNU = new Label("MACHealth");
 
         TextField tfNama = new TextField();
@@ -171,7 +171,13 @@ public class APP extends Application {
         vBox.getChildren().addAll(label, tfGulDar, tfTekDar, hBox, warnLabel, btnTekDar);
         vBox.setAlignment(Pos.CENTER);
 
-        Scene root = new Scene(vBox, 1400, 800);
+        Rectangle rectangle = new Rectangle(460, 420);
+        rectangle.setId("rectangel");
+        rectangle.setArcHeight(30);
+        rectangle.setArcWidth(30);
+        StackPane stackPane = new StackPane(rectangle,vBox);
+
+        Scene root = new Scene(stackPane, 1400, 800);
         root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
         stage.setScene(root);
 
@@ -186,15 +192,16 @@ public class APP extends Application {
         VBox vBox = new VBox(10);
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(imageView, labelNama);
-        Rectangle rectangle = new Rectangle(320, 200);
-        rectangle.setFill(Color.DARKGRAY);
-        rectangle.setId("profilerec");
+        Rectangle rectangle = new Rectangle(300, 180);
         rectangle.setId("RecProfile");
+        rectangle.setArcHeight(35);
+        rectangle.setArcWidth(35);
         StackPane stackPane = new StackPane(rectangle, vBox);
 
         // Rectangle Button
-        Rectangle rectangle1 = new Rectangle(320, 600);
-        rectangle1.setFill(Color.LIGHTGRAY); // Atur warna Rectangle
+        Rectangle rectangle1 = new Rectangle(300, 570);
+        rectangle1.setArcWidth(35);
+        rectangle1.setArcHeight(35);
         rectangle1.setId("RecButton");
         Button minum = new Button("MINUM");
         Button updatedata = new Button("DATA BARU");
@@ -207,11 +214,12 @@ public class APP extends Application {
         vBox1.setAlignment(Pos.CENTER);
         vBox1.getChildren().addAll(minum, updatedata, summary, logout);
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
-        VBox Scroll = new VBox(stackPane, stackPane1);
+        VBox Scroll = new VBox(10,stackPane, stackPane1);
+        Scroll.setPadding(new Insets(20));
 
         // Rectangle LineChart
         FlowPane flowPane = new FlowPane();
-        flowPane.setPadding(new Insets(40));
+        flowPane.setPadding(new Insets(30));
         flowPane.setHgap(20);
         flowPane.setVgap(20);
         flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", Arrays.asList(1.0, 2.0)),
@@ -220,8 +228,8 @@ public class APP extends Application {
                 dashRectangle("BMI", Arrays.asList(1.3, 9.0)));
 
         GridPane gridPane = new GridPane();
-        ColumnConstraints column0 = new ColumnConstraints(320);
-        ColumnConstraints column1 = new ColumnConstraints(1080);
+        ColumnConstraints column0 = new ColumnConstraints(340);
+        ColumnConstraints column1 = new ColumnConstraints(1060);
         gridPane.getColumnConstraints().addAll(column0, column1);
         gridPane.add(Scroll, 0, 0);
         gridPane.add(flowPane, 1, 0);
@@ -231,25 +239,9 @@ public class APP extends Application {
         stage.setScene(root);
     }
 
-    public static void tekananDarah() {
-        System.out.println("Tekanan Darah");
-    }
-
-    public static void gulaDarah() {
-        System.out.println("Gula Darah");
-    }
-
-    public static void konsumsiAir() {
-        System.out.println("Konsumsi Air");
-    }
-    public static void TBBB(){
-        System.out.println("Tinggi Badan");
-    }
     public static void summary(){
         System.out.println("Summary");
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }
