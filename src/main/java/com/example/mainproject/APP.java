@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -43,7 +42,7 @@ public class APP extends Application {
         login.setId("Loginbutton");
         login.requestFocus();
         login.setOnAction(event -> {
-            if (!tfUsername.getText().isBlank() && !tfUsername.getText().isBlank()) {
+            if (!tfUsername.getText().isBlank() && !tfPassword.getText().isBlank()) {
                 dashboard();
             } else {
                 label1.setText("Username atau Password Tidak Boleh Kosong");
@@ -123,9 +122,27 @@ public class APP extends Application {
         vBox.setAlignment(Pos.CENTER);
 
         Rectangle rectangle = new Rectangle(460, 420);
+        rectangle.setId("rectangle");
         rectangle.setArcWidth(30);
         rectangle.setArcHeight(30);
         StackPane stackPane = new StackPane(rectangle, vBox);
+
+        // Change Focus
+        tfNama.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                tfUsername.requestFocus();
+            }
+        });
+        tfUsername.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                tfpass.requestFocus();
+            }
+        });
+        tfpass.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                btnNU.requestFocus();
+            }
+        });
 
         Scene root = new Scene(stackPane, 1400, 800);
         root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
@@ -167,12 +184,35 @@ public class APP extends Application {
             }
         });
 
+        // Change Focus
+        tfTekDar.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                tfGulDar.requestFocus();
+            }
+        });
+        tfGulDar.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                berat.requestFocus();
+            }
+        });
+        berat.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                tinggi.requestFocus();
+            }
+        });
+        tinggi.setOnKeyPressed(event -> {
+            if(event.getCode().toString().equals("ENTER")){
+                btnTekDar.requestFocus();
+            }
+        });
+
+
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(label, tfGulDar, tfTekDar, hBox, warnLabel, btnTekDar);
+        vBox.getChildren().addAll(label, tfTekDar, tfGulDar,  hBox, warnLabel, btnTekDar);
         vBox.setAlignment(Pos.CENTER);
 
         Rectangle rectangle = new Rectangle(460, 420);
-        rectangle.setId("rectangel");
+        rectangle.setId("rectangle");
         rectangle.setArcHeight(30);
         rectangle.setArcWidth(30);
         StackPane stackPane = new StackPane(rectangle,vBox);
@@ -198,12 +238,19 @@ public class APP extends Application {
         rectangle.setArcWidth(35);
         StackPane stackPane = new StackPane(rectangle, vBox);
 
+        // Rectangle Minum
+        Rectangle recMinum = new Rectangle(300, 150);
+        recMinum.setId("RecButton");
+        recMinum.setArcWidth(35);
+        recMinum.setArcHeight(35);
+
+
+
         // Rectangle Button
-        Rectangle rectangle1 = new Rectangle(300, 570);
+        Rectangle rectangle1 = new Rectangle(300, 410);
         rectangle1.setArcWidth(35);
         rectangle1.setArcHeight(35);
         rectangle1.setId("RecButton");
-        Button minum = new Button("MINUM");
         Button updatedata = new Button("DATA BARU");
         Button summary = new Button("SUMMARY");
         Button logout = new Button("LOGOUT");
@@ -212,14 +259,14 @@ public class APP extends Application {
         });
         VBox vBox1 = new VBox(20);
         vBox1.setAlignment(Pos.CENTER);
-        vBox1.getChildren().addAll(minum, updatedata, summary, logout);
+        vBox1.getChildren().addAll(updatedata, summary, logout);
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
-        VBox Scroll = new VBox(10,stackPane, stackPane1);
+        VBox Scroll = new VBox(10,stackPane, recMinum,stackPane1);
         Scroll.setPadding(new Insets(20));
 
         // Rectangle LineChart
         FlowPane flowPane = new FlowPane();
-        flowPane.setPadding(new Insets(30));
+        flowPane.setPadding(new Insets(25));
         flowPane.setHgap(20);
         flowPane.setVgap(20);
         flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", Arrays.asList(1.0, 2.0)),

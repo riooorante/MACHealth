@@ -39,8 +39,8 @@ public class Elemen {
     }
     public static StackPane dashRectangle(String label, List<Double> listdata){
         Rectangle rectangle = new Rectangle(490, 350);
-        rectangle.setArcWidth(35);
-        rectangle.setArcHeight(35);
+        rectangle.setArcWidth(20);
+        rectangle.setArcHeight(20);
         Label labeldiagram = new Label(label);
         VBox vBox2 = new VBox(diagram(listdata),labeldiagram);
         vBox2.setAlignment(Pos.CENTER);

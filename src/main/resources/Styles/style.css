@@ -20,8 +20,8 @@
 
 }
 #rectangle{
-	-fx-background-color: rgb(233, 246, 255);
-	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+	-fx-fill: rgb(20, 24, 26);
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 30, 0, 0, 0);
 }
 #tfREG{
 	-fx-min-width: 40px;
@@ -38,13 +38,15 @@
 /* Dashboard */
 #RecProfile{
 	-fx-fill: #ae1d1d;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
 }
 #RecButton{
-	-fx-fill: #161615;
+	-fx-fill: #121210;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
 }
 
 Button {
-    -fx-background-color: #373434;
+    -fx-background-color: transparent;
 	-fx-text-fill: #fff;
 	-fx-min-width: 20px;
 	-fx-min-height: 20px;
@@ -71,8 +73,9 @@ Label {
     -fx-stroke: rgb(255, 115, 0);
 }
 .chart-plot-background {
-    -fx-background-color: #171717;
+    -fx-background-color: #121210;
 }
 #dashRectangle{
-	-fx-fill:#171717;
+	-fx-fill:#0b0b0a;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
 }
