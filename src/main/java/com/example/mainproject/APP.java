@@ -250,9 +250,15 @@ public class APP extends Application {
         rectangle1.setArcHeight(35);
         rectangle1.setId("RecButton");
 
-        Button updatedata = new Button("DATA BARU"); // TODO Tambahkan setOnAction ke scene UpadateKesehatan() line 154
+        Button updatedata = new Button("DATA BARU");
+        updatedata.setOnAction(event -> {
+            sceneUpdateKesehatan();
+        }); // TODO Tambahkan setOnAction ke scene UpadateKesehatan() line 154
 
-        Button summary = new Button("SUMMARY"); // TODO Tambahkan setOnAction ke scene summary
+        Button summary = new Button("SUMMARY");
+        summary.setOnAction(event -> {
+            sceneSummary();
+        }); // TODO Tambahkan setOnAction ke scene summary
 
         Button logout = new Button("LOGOUT");
         logout.setOnAction(event -> {
