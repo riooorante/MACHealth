@@ -1,35 +1,37 @@
 package com.example.mainproject;
 
+import java.sql.*;
+
 public abstract class Database {
-    abstract void editData();
-    abstract void updateData();
-    abstract void Connect();
-    abstract void deleteData();
+    public static final String datapath = "D:/Programming/Java/MACHealth/src/main/resources/Database/MACHealth.db";
+    public static Boolean readData(String USERNAME, String PASSWORD) {
+        return null;
+    }
 }
-
-class Login extends Database{
-
-    @Override
-    void Connect() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void deleteData() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void editData() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    void updateData() {
-        // TODO Auto-generated method stub
-        
+class Login extends Database {
+    public static Boolean readData(String USERNAME, String PASSWORD) {
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + datapath)) {
+            String query = String.format("SELECT * FROM LOGIN WHERE USERNAME = '%s'", USERNAME);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                String pass = resultSet.getString("PASS");
+                Integer ID = resultSet.getInt("IDUSER");
+                String name = resultSet.getString("NICKNAME");
+                if (pass.equals(PASSWORD.strip().trim())) {
+                    DATA.setID(ID);
+                    DATA.setNAMA(name);
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                System.out.println("Username tidak ditemukan");
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

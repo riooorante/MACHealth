@@ -24,10 +24,9 @@ public class APP extends Application {
     public void start(Stage Stage) throws Exception {
         stage = Stage;
         stage.setTitle("MACHealth");
-        dashboard();
+        sceneLogin();
         stage.show();
     }
-
     private void sceneLogin() {
         Label label = new Label("MACHealth");
 
@@ -42,10 +41,10 @@ public class APP extends Application {
         login.setId("Loginbutton");
         login.requestFocus();
         login.setOnAction(event -> {
-            if (!tfUsername.getText().isBlank() && !tfPassword.getText().isBlank()) {
-                dashboard();
+            if (!tfUsername.getText().isBlank() && !tfPassword.getText().isBlank() && Login.readData(tfUsername.getText(),tfPassword.getText())) {
+                    dashboard();
             } else {
-                label1.setText("Username atau Password Tidak Boleh Kosong");
+                label1.setText("Isi dengan baik dan benar");
             }
         });
 
@@ -224,11 +223,11 @@ public class APP extends Application {
     }
     private void dashboard() {
         // Rectangle Profil
-        Image image = new Image("/Main.png");
+        Image image = new Image("/Icon/Main.png");
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
-        Label labelNama = new Label("Mario");
+        Label labelNama = new Label(DATA.getNAMA());
         VBox vBox = new VBox(10);
         vBox.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(imageView, labelNama);
@@ -252,13 +251,13 @@ public class APP extends Application {
 
         Button updatedata = new Button("DATA BARU");
         updatedata.setOnAction(event -> {
-            sceneUpdateKesehatan();
-        }); // TODO Tambahkan setOnAction ke scene UpadateKesehatan() line 154
+            updateKesehatan();
+        });
 
         Button summary = new Button("SUMMARY");
         summary.setOnAction(event -> {
-            sceneSummary();
-        }); // TODO Tambahkan setOnAction ke scene summary
+            summary();
+        });
 
         Button logout = new Button("LOGOUT");
         logout.setOnAction(event -> {
