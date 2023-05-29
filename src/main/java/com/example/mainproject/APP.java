@@ -244,23 +244,27 @@ public class APP extends Application {
         recMinum.setArcWidth(35);
         recMinum.setArcHeight(35);
 
-
-
         // Rectangle Button
         Rectangle rectangle1 = new Rectangle(300, 410);
         rectangle1.setArcWidth(35);
         rectangle1.setArcHeight(35);
         rectangle1.setId("RecButton");
-        Button updatedata = new Button("DATA BARU");
-        Button summary = new Button("SUMMARY");
+
+        Button updatedata = new Button("DATA BARU"); // Tambahkan setOnAction ke scene UpadateKesehatan() line 154
+
+        Button summary = new Button("SUMMARY"); // Tambahkan setOnAction ke scene summary
+
         Button logout = new Button("LOGOUT");
         logout.setOnAction(event -> {
             sceneLogin();
         });
+
         VBox vBox1 = new VBox(20);
         vBox1.setAlignment(Pos.CENTER);
         vBox1.getChildren().addAll(updatedata, summary, logout);
+
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
+
         VBox Scroll = new VBox(10,stackPane, recMinum,stackPane1);
         Scroll.setPadding(new Insets(20));
 
@@ -274,6 +278,7 @@ public class APP extends Application {
                 dashRectangle("Gula Darah", Arrays.asList(1.2, 2.4)),
                 dashRectangle("BMI", Arrays.asList(1.3, 9.0)));
 
+        // Gridpane Dashboard
         GridPane gridPane = new GridPane();
         ColumnConstraints column0 = new ColumnConstraints(340);
         ColumnConstraints column1 = new ColumnConstraints(1060);
@@ -281,6 +286,7 @@ public class APP extends Application {
         gridPane.add(Scroll, 0, 0);
         gridPane.add(flowPane, 1, 0);
 
+        // Set Scene
         Scene root = new Scene(gridPane, 1400, 800);
         root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
         stage.setScene(root);
