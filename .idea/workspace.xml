@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;add comment&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/DATA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icon/Main.png" afterDir="false" />
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;add class and method&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Registrasi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/UpdateKesehatan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/APP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/DATA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/DATA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MACHealth.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Main.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685329735396</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="&quot;add class and method&quot;">
+      <created>1685371026930</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685371026930</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,7 +227,8 @@
     <MESSAGE value="&quot;Add registration scenes feature&quot;" />
     <MESSAGE value="&quot;Styling with CSS&quot;" />
     <MESSAGE value="&quot;add comment&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;add comment&quot;" />
+    <MESSAGE value="&quot;add class and method&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;add class and method&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

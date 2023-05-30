@@ -9,10 +9,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Elemen {
-    public static LineChart<Number, Number> diagram(List<Double> doubles) {
+    public static LineChart<Number, Number> diagram(ArrayList<Double> doubles) {
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
 
@@ -25,10 +25,10 @@ public class Elemen {
         lineChart.getXAxis().setTickLabelsVisible(false);
         lineChart.getXAxis().setOpacity(0);
 
-        series.getData().add(new XYChart.Data<>(1,2));
-        series.getData().add(new XYChart.Data<>(2,7));
-        series.getData().add(new XYChart.Data<>(3,9));
-        series.getData().add(new XYChart.Data<>(4,4));
+        int day = 0;
+        for (Double data : doubles){
+            series.getData().add(new XYChart.Data<>(day++,data));
+        }
 
 
         lineChart.getData().add(series);
@@ -37,7 +37,7 @@ public class Elemen {
 
         return lineChart;
     }
-    public static StackPane dashRectangle(String label, List<Double> listdata){
+    public static StackPane dashRectangle(String label, ArrayList<Double> listdata){
         Rectangle rectangle = new Rectangle(490, 350);
         rectangle.setArcWidth(20);
         rectangle.setArcHeight(20);

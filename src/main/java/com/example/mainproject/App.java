@@ -17,7 +17,7 @@ import java.util.Arrays;
 
 import static com.example.mainproject.Elemen.dashRectangle;
 
-public class APP extends Application {
+public class App extends Application {
     private Stage stage;
 
     @Override
@@ -109,8 +109,12 @@ public class APP extends Application {
         Button btnNU = new Button("LANJUTKAN");
         btnNU.setId("Loginbutton");
         btnNU.setOnAction(event -> {
-            if (!tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank()) {
-                updateKesehatan();
+            if (!tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15)) {
+                if (Registrasi.inputData(tfNama.getText(),tfUsername.getText(),tfpass.getText())){
+                    updateKesehatan();
+                } else {
+                    warnLabel.setText("Username Sudah Digunakan");
+                }
             } else {
                 warnLabel.setText("Lengkapi Data");
             }
@@ -176,10 +180,16 @@ public class APP extends Application {
         Button btnTekDar = new Button("LANJUTKAN");
         btnTekDar.setId("Loginbutton");
         btnTekDar.setOnAction(event -> {
-            if (!tfTekDar.getText().isBlank()) {
-                dashboard();
+            if (!tfTekDar.getText().isBlank() && !tfGulDar.getText().isBlank() && !berat.getText().isBlank() && !tinggi.getText().isBlank()) {
+                int tekdar = Integer.parseInt(tfTekDar.getText());
+                int guldar = Integer.parseInt(tfGulDar.getText());
+                int Tinggi = Integer.parseInt(tinggi.getText());
+                int Berat = Integer.parseInt(berat.getText());
+                if (UpdateKesehatan.inputData(tekdar,guldar,Tinggi,Berat)){
+                    sceneLogin();
+                }
             } else {
-                warnLabel.setText("Lengkapi Data");
+                warnLabel.setText("Isi Data Dengan Baik Dan Benar");
             }
         });
 
@@ -219,6 +229,7 @@ public class APP extends Application {
         Scene root = new Scene(stackPane, 1400, 800);
         root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
         stage.setScene(root);
+        vBox.requestFocus();
 
     }
     private void dashboard() {
@@ -274,14 +285,15 @@ public class APP extends Application {
         Scroll.setPadding(new Insets(20));
 
         // Rectangle LineChart
+        DATA data = new DATA();
         FlowPane flowPane = new FlowPane();
         flowPane.setPadding(new Insets(25));
         flowPane.setHgap(20);
         flowPane.setVgap(20);
-        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", Arrays.asList(1.0, 2.0)),
-                dashRectangle("Tekanan Darah", Arrays.asList(1.3, 2.1)),
-                dashRectangle("Gula Darah", Arrays.asList(1.2, 2.4)),
-                dashRectangle("BMI", Arrays.asList(1.3, 9.0)));
+        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", data.datadiagram("TEKANAN_DARAH")),
+                dashRectangle("Tekanan Darah", data.datadiagram("TEKANAN_DARAH")),
+                dashRectangle("Gula Darah", data.datadiagram("GULA_DARAH")),
+                dashRectangle("BMI", data.datadiagram("BMI")));
 
         // Gridpane Dashboard
         GridPane gridPane = new GridPane();
