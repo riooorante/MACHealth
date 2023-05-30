@@ -16,8 +16,6 @@ public class Registrasi extends Database{
                 statementinput.setString(2, PASSWORD);
                 statementinput.setString(3, NAME);
                 statementinput.executeUpdate();
-                int ID = resultSet.getInt("IDUSER");
-                DATA.setID(ID);
                 return true;
             }
         } catch (SQLException e) {

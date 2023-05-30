@@ -25,6 +25,7 @@ public class App extends Application {
         stage = Stage;
         stage.setTitle("MACHealth");
         sceneLogin();
+        stage.setResizable(false);
         stage.show();
     }
     private void sceneLogin() {
@@ -111,7 +112,7 @@ public class App extends Application {
         btnNU.setOnAction(event -> {
             if (!tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15)) {
                 if (Registrasi.inputData(tfNama.getText(),tfUsername.getText(),tfpass.getText())){
-                    updateKesehatan();
+                    sceneLogin();
                 } else {
                     warnLabel.setText("Username Sudah Digunakan");
                 }
@@ -186,7 +187,7 @@ public class App extends Application {
                 int Tinggi = Integer.parseInt(tinggi.getText());
                 int Berat = Integer.parseInt(berat.getText());
                 if (UpdateKesehatan.inputData(tekdar,guldar,Tinggi,Berat)){
-                    sceneLogin();
+                    dashboard();
                 }
             } else {
                 warnLabel.setText("Isi Data Dengan Baik Dan Benar");
