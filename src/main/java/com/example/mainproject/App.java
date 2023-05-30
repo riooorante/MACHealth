@@ -311,7 +311,36 @@ public class App extends Application {
     }
 
     public static void summary(){
+        Rectangle rectangle4 = new Rectangle(300, 100);
+        rectangle1.setArcWidth(35);
+        rectangle1.setArcHeight(35);
+        rectangle1.setId("RecSummary");
         System.out.println("Summary");
+
+        Label label = new Label("Summary");
+        TextField tfTekDar = new TextField();
+        tfTekDar.setPromptText("Tekanan Darah");
+        tfTekDar.setId("tfREG");
+
+        TextField tfGulDar = new TextField();
+        tfGulDar.setPromptText("Gula Darah");
+        tfGulDar.setId("tfREG");
+
+        TextField berat = new TextField();
+        berat.setPromptText("Berat");
+        berat.setId("TBBB");
+
+        TextField tinggi = new TextField();
+        tinggi.setPromptText("Tinggi");
+        tinggi.setId("TBBB"); 
+
+        HBox hBox = new HBox(10);
+        hBox.getChildren().add(ractangle4);
+
+        Scene root = new Scene(hBox, 1400, 800);
+        root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
+        stage.setScene(root);
+        vBox.requestFocus();
     }
     public static void main(String[] args) {
         launch(args);
