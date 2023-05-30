@@ -4,16 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DATA {
-    private static String USERNAME,PASSWORD,NAMA;
+    private static String NAMA;
     private static Integer ID;
-
-    public static void setUSERNAME(String USERNAME) {
-        DATA.USERNAME = USERNAME;
-    }
-
-    public static void setPASSWORD(String PASSWORD) {
-        DATA.PASSWORD = PASSWORD;
-    }
 
     public static void setNAMA(String NAMA) {
         DATA.NAMA = NAMA;
@@ -23,13 +15,6 @@ public class DATA {
         DATA.ID = ID;
     }
 
-    public static String getUSERNAME() {
-        return USERNAME;
-    }
-
-    public static String getPASSWORD() {
-        return PASSWORD;
-    }
 
     public static String getNAMA() {
         return NAMA;

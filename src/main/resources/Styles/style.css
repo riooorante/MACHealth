@@ -67,6 +67,13 @@ Label {
 	-fx-text-fill: #fff;
 	-fx-font-size: 18px;
 }
+.pass{
+    -fx-min-width: 100px;
+	-fx-min-height: 40px;
+	-fx-max-width: 300px;
+	-fx-max-height: 80px;
+	-fx-font-size: 18px;
+}
 
 /* linechart */
 .chart-line-series {

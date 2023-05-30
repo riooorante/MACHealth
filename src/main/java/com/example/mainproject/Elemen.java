@@ -15,7 +15,6 @@ public class Elemen {
     public static LineChart<Number, Number> diagram(ArrayList<Double> doubles) {
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
-
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         lineChart.lookup(".chart-vertical-grid-lines").setVisible(false);
@@ -24,13 +23,10 @@ public class Elemen {
         lineChart.getYAxis().setOpacity(0);
         lineChart.getXAxis().setTickLabelsVisible(false);
         lineChart.getXAxis().setOpacity(0);
-
         int day = 0;
         for (Double data : doubles){
             series.getData().add(new XYChart.Data<>(day++,data));
         }
-
-
         lineChart.getData().add(series);
         lineChart.setPrefSize(200,300);
         lineChart.setLegendVisible(false);

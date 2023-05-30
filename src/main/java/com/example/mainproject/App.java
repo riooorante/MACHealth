@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,7 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.util.Arrays;
+import java.sql.SQLException;
 
 import static com.example.mainproject.Elemen.dashRectangle;
 
@@ -34,16 +35,18 @@ public class App extends Application {
         TextField tfUsername = new TextField();
         tfUsername.setPromptText("Username");
 
-        TextField tfPassword = new TextField();
-        tfPassword.setPromptText("Password");
+        PasswordField pspass = new PasswordField();
+        pspass.setPromptText("Password");
+        pspass.setId("Pass");
 
         Label label1 = new Label();
         Button login = new Button("LOGIN");
         login.setId("Loginbutton");
         login.requestFocus();
         login.setOnAction(event -> {
-            if (!tfUsername.getText().isBlank() && !tfPassword.getText().isBlank() && Login.readData(tfUsername.getText(),tfPassword.getText())) {
-                    dashboard();
+            Login loginvalidation = new Login();
+            if (!tfUsername.getText().isBlank() && !pspass.getText().isBlank() && loginvalidation.readData(tfUsername.getText(), pspass.getText())) {
+                dashboard();
             } else {
                 label1.setText("Isi dengan baik dan benar");
             }
@@ -58,12 +61,12 @@ public class App extends Application {
 
         tfUsername.setOnKeyPressed(event -> {
             if (event.getCode().toString().equals("ENTER")){
-                tfPassword.requestFocus();
+                pspass.requestFocus();
             }
         });
 
-        tfPassword.setOnKeyPressed(event -> {
-            if (event.getCode().toString().equals("ENTER")){
+        pspass.setOnKeyPressed(event -> {
+            if (event.getCode().toString().equals("ENTER")) {
                 login.requestFocus();
             }
         });
@@ -73,7 +76,7 @@ public class App extends Application {
         hBox.setAlignment(Pos.BOTTOM_CENTER);
 
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(label, tfUsername, tfPassword, label1, login, register);
+        vBox.getChildren().addAll(label, tfUsername, pspass, label1, login, register);
         vBox.setAlignment(Pos.CENTER);
 
         Rectangle rectangle = new Rectangle(460, 420);
@@ -111,7 +114,8 @@ public class App extends Application {
         btnNU.setId("Loginbutton");
         btnNU.setOnAction(event -> {
             if (!tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15)) {
-                if (Registrasi.inputData(tfNama.getText(),tfUsername.getText(),tfpass.getText())){
+                Registrasi registrasi = new Registrasi(tfNama.getText(), tfUsername.getText(), tfpass.getText());
+                if (registrasi.registrasi()) {
                     sceneLogin();
                 } else {
                     warnLabel.setText("Username Sudah Digunakan");
@@ -186,8 +190,13 @@ public class App extends Application {
                 int guldar = Integer.parseInt(tfGulDar.getText());
                 int Tinggi = Integer.parseInt(tinggi.getText());
                 int Berat = Integer.parseInt(berat.getText());
-                if (UpdateKesehatan.inputData(tekdar,guldar,Tinggi,Berat)){
-                    dashboard();
+                UpdateKesehatan updateKesehatan = new UpdateKesehatan(tekdar, guldar, Tinggi, Berat);
+                try {
+                    if (updateKesehatan.updateKesehatan()) {
+                        dashboard();
+                    }
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
                 }
             } else {
                 warnLabel.setText("Isi Data Dengan Baik Dan Benar");
@@ -310,37 +319,37 @@ public class App extends Application {
         stage.setScene(root);
     }
 
-    public static void summary(){
-        Rectangle rectangle4 = new Rectangle(300, 100);
-        rectangle1.setArcWidth(35);
-        rectangle1.setArcHeight(35);
-        rectangle1.setId("RecSummary");
-        System.out.println("Summary");
-
-        Label label = new Label("Summary");
-        TextField tfTekDar = new TextField();
-        tfTekDar.setPromptText("Tekanan Darah");
-        tfTekDar.setId("tfREG");
-
-        TextField tfGulDar = new TextField();
-        tfGulDar.setPromptText("Gula Darah");
-        tfGulDar.setId("tfREG");
-
-        TextField berat = new TextField();
-        berat.setPromptText("Berat");
-        berat.setId("TBBB");
-
-        TextField tinggi = new TextField();
-        tinggi.setPromptText("Tinggi");
-        tinggi.setId("TBBB"); 
-
-        HBox hBox = new HBox(10);
-        hBox.getChildren().add(ractangle4);
-
-        Scene root = new Scene(hBox, 1400, 800);
-        root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
-        stage.setScene(root);
-        vBox.requestFocus();
+    public static void summary() {
+//        Rectangle rectangle4 = new Rectangle(300, 100);
+//        rectangle1.setArcWidth(35);
+//        rectangle1.setArcHeight(35);
+//        rectangle1.setId("RecSummary");
+//        System.out.println("Summary");
+//
+//        Label label = new Label("Summary");
+//        TextField tfTekDar = new TextField();
+//        tfTekDar.setPromptText("Tekanan Darah");
+//        tfTekDar.setId("tfREG");
+//
+//        TextField tfGulDar = new TextField();
+//        tfGulDar.setPromptText("Gula Darah");
+//        tfGulDar.setId("tfREG");
+//
+//        TextField berat = new TextField();
+//        berat.setPromptText("Berat");
+//        berat.setId("TBBB");
+//
+//        TextField tinggi = new TextField();
+//        tinggi.setPromptText("Tinggi");
+//        tinggi.setId("TBBB");
+//
+//        HBox hBox = new HBox(10);
+//        hBox.getChildren().add(ractangle4);
+//
+//        Scene root = new Scene(hBox, 1400, 800);
+//        root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
+//        stage.setScene(root);
+//        vBox.requestFocus();
     }
     public static void main(String[] args) {
         launch(args);

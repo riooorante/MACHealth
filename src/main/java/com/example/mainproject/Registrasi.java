@@ -1,26 +1,40 @@
 package com.example.mainproject;
 
 import java.sql.*;
-public class Registrasi extends Database{
-    public static Boolean inputData(String NAME,String USERNAME, String PASSWORD) {
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + datapath)) {
-            String queryread = String.format("SELECT * FROM LOGIN WHERE USERNAME = '%s'", USERNAME);
-            Statement statement = connection.createStatement();
+public class Registrasi extends Database {
+
+    public Registrasi(String name, String username, String password) {
+        super(name, username, password);
+    }
+
+    public Boolean registrasi() {
+        try {
+            Connection conn = connection();
+            String queryread = String.format("SELECT * FROM LOGIN WHERE USERNAME = '%s'", getUsername().strip().trim());
+            Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(queryread);
-            if (resultSet.next()){
+            if (resultSet.next()) {
+                conn.close();
                 return false;
             } else {
-                String queryinput = "INSERT INTO LOGIN (USERNAME,PASS,NICKNAME) VALUES (?,?,?)";
-                PreparedStatement statementinput = connection.prepareStatement(queryinput);
-                statementinput.setString(1, USERNAME);
-                statementinput.setString(2, PASSWORD);
-                statementinput.setString(3, NAME);
-                statementinput.executeUpdate();
+                inputData();
+                conn.close();
                 return true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public Connection connection() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:" + datapath);
+            return connection;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
