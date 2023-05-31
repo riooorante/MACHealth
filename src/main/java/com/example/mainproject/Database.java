@@ -45,7 +45,7 @@ public abstract class Database {
     public Database(Integer tekananDarah, Integer gulaDarah, Integer tinggi, Integer berat) {
         this.tekananDarah = tekananDarah;
         this.gulaDarah = gulaDarah;
-        this.tinggi = tinggi;
+        this.tinggi = tinggi/100;
         this.berat = berat;
     }
 

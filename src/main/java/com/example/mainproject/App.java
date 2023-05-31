@@ -113,7 +113,8 @@ public class App extends Application {
         Button btnNU = new Button("LANJUTKAN");
         btnNU.setId("Loginbutton");
         btnNU.setOnAction(event -> {
-            if (!tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15)) {
+            boolean konfirmasiregis = tfNama.getText().isBlank() || tfUsername.getText().isBlank() || tfpass.getText().isBlank() || (tfNama.getText().length() <= 15);
+            if (konfirmasiregis) {
                 Registrasi registrasi = new Registrasi(tfNama.getText(), tfUsername.getText(), tfpass.getText());
                 if (registrasi.registrasi()) {
                     sceneLogin();
@@ -185,7 +186,8 @@ public class App extends Application {
         Button btnTekDar = new Button("LANJUTKAN");
         btnTekDar.setId("Loginbutton");
         btnTekDar.setOnAction(event -> {
-            if (!tfTekDar.getText().isBlank() && !tfGulDar.getText().isBlank() && !berat.getText().isBlank() && !tinggi.getText().isBlank()) {
+            boolean konfirmasikesehatan = tfTekDar.getText().isBlank() || tfGulDar.getText().isBlank() || berat.getText().isBlank() || tinggi.getText().isBlank();
+            if (konfirmasikesehatan) {
                 int tekdar = Integer.parseInt(tfTekDar.getText());
                 int guldar = Integer.parseInt(tfGulDar.getText());
                 int Tinggi = Integer.parseInt(tinggi.getText());
@@ -263,6 +265,9 @@ public class App extends Application {
         recMinum.setId("RecButton");
         recMinum.setArcWidth(35);
         recMinum.setArcHeight(35);
+        Button btnminum = new Button();
+        HBox hBoxminum = new HBox(10,btnminum);
+        StackPane stackminum = new StackPane(recMinum,hBoxminum);
 
         // Rectangle Button
         Rectangle rectangle1 = new Rectangle(300, 410);
@@ -291,7 +296,7 @@ public class App extends Application {
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
 
-        VBox Scroll = new VBox(10,stackPane, recMinum,stackPane1);
+        VBox Scroll = new VBox(10,stackPane, stackminum,stackPane1);
         Scroll.setPadding(new Insets(20));
 
         // Rectangle LineChart
@@ -300,10 +305,10 @@ public class App extends Application {
         flowPane.setPadding(new Insets(25));
         flowPane.setHgap(20);
         flowPane.setVgap(20);
-        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", data.datadiagram("TEKANAN_DARAH")),
-                dashRectangle("Tekanan Darah", data.datadiagram("TEKANAN_DARAH")),
-                dashRectangle("Gula Darah", data.datadiagram("GULA_DARAH")),
-                dashRectangle("BMI", data.datadiagram("BMI")));
+        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", data.datadiagram("KONSUMSI","KONSUMSIAIR")),
+                dashRectangle("Tekanan Darah", data.datadiagram("TEKANAN_DARAH","HISTORY")),
+                dashRectangle("Gula Darah", data.datadiagram("GULA_DARAH","HISTORY")),
+                dashRectangle("BMI", data.datadiagram("BMI","HISTORY")));
 
         // Gridpane Dashboard
         GridPane gridPane = new GridPane();

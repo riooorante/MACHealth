@@ -15,7 +15,6 @@ public class DATA {
         DATA.ID = ID;
     }
 
-
     public static String getNAMA() {
         return NAMA;
     }
@@ -23,10 +22,10 @@ public class DATA {
     public static Integer getID() {
         return ID;
     }
-    public ArrayList datadiagram(String kolom){
+    public ArrayList datadiagram(String kolom, String table){
         ArrayList<Double> arrayList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + "D:/Programming/Java/MACHealth/src/main/resources/Database/MACHealth.db")) {
-            String query = String.format("SELECT * FROM HISTORY WHERE IDUSER = '%d'", DATA.getID());
+            String query = String.format("SELECT * FROM %s WHERE IDUSER = '%d'", table,DATA.getID());
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
