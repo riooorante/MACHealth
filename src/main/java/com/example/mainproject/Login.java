@@ -17,9 +17,11 @@ public class Login extends Database {
                 String pass = resultSet.getString("PASS");
                 Integer ID = resultSet.getInt("IDUSER");
                 String name = resultSet.getString("NICKNAME");
+                String icon = resultSet.getString("ICON");
                 if (pass.equals(PASSWORD.strip().trim())) {
                     DATA.setID(ID);
                     DATA.setNAMA(name);
+                    DATA.setICON(icon);
                     conn.close();
                     return true;
                 } else {

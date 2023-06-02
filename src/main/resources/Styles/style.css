@@ -1,11 +1,9 @@
 .root{
     -fx-background-color: #10110e;
 }
-
-#label1 {
-    -fx-font-size:10;
-    -fx-font-weight:bold;
-    -fx-text-fill:#fff;
+@font-face {
+    font-family: "Nunito Medium";
+    src: url("../Font/Nunito-Medium.ttf") format("truetype") local("sample");
 }
 
 /* Login Page, Registration Page, Update Health Data */
@@ -17,7 +15,18 @@
 	-fx-max-width: 200px;
 	-fx-max-height: 150px;
 	-fx-font-size: 15px;
+}
 
+#Main-Label{
+	-fx-font-size:40px;
+	-fx-font-family: "Nunito Medium";
+} 
+
+#ICON:hover{
+	-fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0);
+}
+#ICON:pressed {
+	-fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 10, 0, 0, 0);
 }
 #rectangle{
 	-fx-fill: rgb(20, 24, 26);
@@ -66,8 +75,9 @@ TextField {
 Label {
 	-fx-text-fill: #fff;
 	-fx-font-size: 18px;
+	-fx-font-family: "Nunito Medium";
 }
-.pass{
+#Pass{
     -fx-min-width: 100px;
 	-fx-min-height: 40px;
 	-fx-max-width: 300px;
@@ -85,4 +95,27 @@ Label {
 #dashRectangle{
 	-fx-fill:#0b0b0a;
 	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
+}
+
+PieChart{
+	-fx-pie-label-visible: false;
+}
+
+
+.data0 {
+    -fx-pie-color: #4a41cf;
+}
+.data1 {
+    -fx-pie-color: #073571;
+}
+
+#Recminum{
+	-fx-background-color: #2b2b2a;
+	-fx-text-fill: #fff;
+	-fx-min-height:20;
+	-fx-min-width:20;
+	-fx-max-width: 80px;
+	-fx-max-height:80px;
+	-fx-font-size: 20px;
+    -fx-font-weight:bold;
 }

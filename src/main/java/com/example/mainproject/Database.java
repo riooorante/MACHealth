@@ -72,11 +72,12 @@ public abstract class Database {
 
     public void inputData() throws SQLException {
         try {
-            String queryinput = "INSERT INTO LOGIN (USERNAME,PASS,NICKNAME) VALUES (?,?,?)";
+            String queryinput = "INSERT INTO LOGIN (USERNAME,PASS,NICKNAME, ICON) VALUES (?,?,?,?)";
             PreparedStatement statementinput = connection().prepareStatement(queryinput);
             statementinput.setString(1, getUsername());
             statementinput.setString(2,getPassword());
             statementinput.setString(3, getName());
+            statementinput.setString(4, DATA.getICON());
             statementinput.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

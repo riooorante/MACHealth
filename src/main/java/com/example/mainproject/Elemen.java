@@ -3,6 +3,7 @@ package com.example.mainproject;
 import javafx.geometry.Pos;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -38,11 +39,28 @@ public class Elemen {
         rectangle.setArcWidth(20);
         rectangle.setArcHeight(20);
         Label labeldiagram = new Label(label);
-        VBox vBox2 = new VBox(diagram(listdata),labeldiagram);
+        VBox vBox2 = new VBox(diagram(listdata), labeldiagram);
         vBox2.setAlignment(Pos.CENTER);
-        StackPane stackPane = new StackPane(rectangle,vBox2);
+        StackPane stackPane = new StackPane(rectangle, vBox2);
         rectangle.setId("dashRectangle");
 
         return stackPane;
     }
+
+    public static PieChart pieChart(ArrayList<Double> arrayList) {
+        int lastData = arrayList.size() - 1;
+        PieChart.Data max = new PieChart.Data("", 8);
+        PieChart.Data minum = new PieChart.Data("", arrayList.get(lastData) < 8 ? arrayList.get(lastData) : 8);
+
+        PieChart pieChart = new PieChart();
+        pieChart.getData().addAll(max, minum);
+
+        pieChart.setPrefWidth(15);
+        pieChart.setPrefHeight(15);
+
+
+
+        return pieChart;
+    }
+
 }

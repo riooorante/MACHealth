@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 import static com.example.mainproject.Elemen.dashRectangle;
+import static com.example.mainproject.Elemen.pieChart;
 
 public class App extends Application {
     private Stage stage;
@@ -31,6 +32,7 @@ public class App extends Application {
     }
     private void sceneLogin() {
         Label label = new Label("MACHealth");
+        label.setId("Main-Label");
 
         TextField tfUsername = new TextField();
         tfUsername.setPromptText("Username");
@@ -39,16 +41,17 @@ public class App extends Application {
         pspass.setPromptText("Password");
         pspass.setId("Pass");
 
-        Label label1 = new Label();
+        Label warnlabel = new Label();
         Button login = new Button("LOGIN");
         login.setId("Loginbutton");
         login.requestFocus();
         login.setOnAction(event -> {
             Login loginvalidation = new Login();
-            if (!tfUsername.getText().isBlank() && !pspass.getText().isBlank() && loginvalidation.readData(tfUsername.getText(), pspass.getText())) {
+            boolean konfirmasi = !tfUsername.getText().isBlank() && !pspass.getText().isBlank() && loginvalidation.readData(tfUsername.getText(), pspass.getText());
+            if (konfirmasi) {
                 dashboard();
             } else {
-                label1.setText("Isi dengan baik dan benar");
+                warnlabel.setText("Isi dengan baik dan benar");
             }
         });
 
@@ -71,12 +74,8 @@ public class App extends Application {
             }
         });
 
-        HBox hBox = new HBox(30);
-        hBox.getChildren().add(label1);
-        hBox.setAlignment(Pos.BOTTOM_CENTER);
-
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(label, tfUsername, pspass, label1, login, register);
+        vBox.getChildren().addAll(label, tfUsername, pspass, warnlabel, login, register);
         vBox.setAlignment(Pos.CENTER);
 
         Rectangle rectangle = new Rectangle(460, 420);
@@ -108,12 +107,38 @@ public class App extends Application {
         tfpass.setPromptText("Password");
         tfpass.setId("tfREG");
 
+        Label icon = new Label("PILIH ICON");
+
+        Image maleImage = new Image(getClass().getResourceAsStream("/Icon/boy.png"));
+        ImageView maleview = new ImageView(maleImage);
+        maleview.setFitWidth(80);
+        maleview.setFitHeight(80);
+        Image girlImage = new Image(getClass().getResourceAsStream("/Icon/girl.png"));
+        ImageView girlview = new ImageView(girlImage);
+        girlview.setFitWidth(80);
+        girlview.setFitHeight(80);
+        Button male = new Button();
+        male.setOnAction(event -> {
+            DATA.setICON("/Icon/boy.png");
+        });
+        male.setId("ICON");
+        male.setGraphic(maleview);
+        Button girl = new Button();
+        girl.setOnAction(event -> {
+            DATA.setICON("/Icon/girl.png");
+        });
+        girl.setId("ICON");
+        girl.setGraphic(girlview);
+        male.setStyle("-fx-background-radius: 50;");
+
+        HBox iconbutton = new HBox(20,male,girl);
+        iconbutton.setAlignment(Pos.CENTER);
 
         Label warnLabel = new Label();
-        Button btnNU = new Button("LANJUTKAN");
+        Button btnNU = new Button("SIMPAN DATA");
         btnNU.setId("Loginbutton");
         btnNU.setOnAction(event -> {
-            boolean konfirmasiregis = tfNama.getText().isBlank() || tfUsername.getText().isBlank() || tfpass.getText().isBlank() || (tfNama.getText().length() <= 15);
+            boolean konfirmasiregis = DATA.getICON() != null && !tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15);
             if (konfirmasiregis) {
                 Registrasi registrasi = new Registrasi(tfNama.getText(), tfUsername.getText(), tfpass.getText());
                 if (registrasi.registrasi()) {
@@ -127,10 +152,10 @@ public class App extends Application {
         });
 
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(lNU, tfNama, tfUsername, tfpass, warnLabel, btnNU);
+        vBox.getChildren().addAll(lNU, tfNama, tfUsername, tfpass, icon,iconbutton,warnLabel, btnNU);
         vBox.setAlignment(Pos.CENTER);
 
-        Rectangle rectangle = new Rectangle(460, 420);
+        Rectangle rectangle = new Rectangle(460, 520);
         rectangle.setId("rectangle");
         rectangle.setArcWidth(30);
         rectangle.setArcHeight(30);
@@ -183,10 +208,10 @@ public class App extends Application {
         hBox.setAlignment(Pos.CENTER);
 
         Label warnLabel = new Label();
-        Button btnTekDar = new Button("LANJUTKAN");
+        Button btnTekDar = new Button("SIMPAN DATA");
         btnTekDar.setId("Loginbutton");
         btnTekDar.setOnAction(event -> {
-            boolean konfirmasikesehatan = tfTekDar.getText().isBlank() || tfGulDar.getText().isBlank() || berat.getText().isBlank() || tinggi.getText().isBlank();
+            boolean konfirmasikesehatan = !tfTekDar.getText().isBlank() && !tfGulDar.getText().isBlank() && !berat.getText().isBlank() && !tinggi.getText().isBlank();
             if (konfirmasikesehatan) {
                 int tekdar = Integer.parseInt(tfTekDar.getText());
                 int guldar = Integer.parseInt(tfGulDar.getText());
@@ -246,7 +271,7 @@ public class App extends Application {
     }
     private void dashboard() {
         // Rectangle Profil
-        Image image = new Image("/Icon/Main.png");
+        Image image = new Image(DATA.getICON());
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
@@ -261,12 +286,22 @@ public class App extends Application {
         StackPane stackPane = new StackPane(rectangle, vBox);
 
         // Rectangle Minum
+
+        DATA data = new DATA();
         Rectangle recMinum = new Rectangle(300, 150);
         recMinum.setId("RecButton");
         recMinum.setArcWidth(35);
         recMinum.setArcHeight(35);
-        Button btnminum = new Button();
-        HBox hBoxminum = new HBox(10,btnminum);
+        Button btnminum = new Button("Minum");
+        btnminum.setAlignment(Pos.CENTER);
+        btnminum.setId("Recminum");
+        btnminum.setOnAction(event -> {
+            KonsumsiAir konsumsiAir = new KonsumsiAir();
+            konsumsiAir.updatedataminum();
+            dashboard();
+        });
+        btnminum.setStyle("-fx-background-radius: 50;");
+        HBox hBoxminum = new HBox(pieChart(data.datadiagram("KONSUMSI","KONSUMSI_AIR")), btnminum);
         StackPane stackminum = new StackPane(recMinum,hBoxminum);
 
         // Rectangle Button
@@ -274,6 +309,11 @@ public class App extends Application {
         rectangle1.setArcWidth(35);
         rectangle1.setArcHeight(35);
         rectangle1.setId("RecButton");
+
+        Button dashboard = new Button("DASHBOARD");
+        dashboard.setOnAction(event -> {
+            dashboard();
+        });
 
         Button updatedata = new Button("DATA BARU");
         updatedata.setOnAction(event -> {
@@ -292,7 +332,7 @@ public class App extends Application {
 
         VBox vBox1 = new VBox(20);
         vBox1.setAlignment(Pos.CENTER);
-        vBox1.getChildren().addAll(updatedata, summary, logout);
+        vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
 
@@ -300,12 +340,11 @@ public class App extends Application {
         Scroll.setPadding(new Insets(20));
 
         // Rectangle LineChart
-        DATA data = new DATA();
         FlowPane flowPane = new FlowPane();
         flowPane.setPadding(new Insets(25));
         flowPane.setHgap(20);
         flowPane.setVgap(20);
-        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", data.datadiagram("KONSUMSI","KONSUMSIAIR")),
+        flowPane.getChildren().addAll(dashRectangle("Konsumsi Air", data.datadiagram("KONSUMSI","KONSUMSI_AIR")),
                 dashRectangle("Tekanan Darah", data.datadiagram("TEKANAN_DARAH","HISTORY")),
                 dashRectangle("Gula Darah", data.datadiagram("GULA_DARAH","HISTORY")),
                 dashRectangle("BMI", data.datadiagram("BMI","HISTORY")));

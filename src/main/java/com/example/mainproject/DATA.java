@@ -5,6 +5,16 @@ import java.util.ArrayList;
 
 public class DATA {
     private static String NAMA;
+
+    public static String getICON() {
+        return ICON;
+    }
+
+    public static void setICON(String ICON) {
+        DATA.ICON = ICON;
+    }
+
+    private static String ICON;
     private static Integer ID;
 
     public static void setNAMA(String NAMA) {
