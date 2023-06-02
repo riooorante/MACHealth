@@ -50,15 +50,13 @@ public class Elemen {
     public static PieChart pieChart(ArrayList<Double> arrayList) {
         int lastData = arrayList.size() - 1;
         PieChart.Data max = new PieChart.Data("", 8);
-        PieChart.Data minum = new PieChart.Data("", arrayList.get(lastData) < 8 ? arrayList.get(lastData) : 8);
+        PieChart.Data minum = new PieChart.Data("", arrayList.size() == 0 ? 0 : arrayList.get(lastData) < 8 ? arrayList.get(lastData) : 8);
 
         PieChart pieChart = new PieChart();
         pieChart.getData().addAll(max, minum);
 
         pieChart.setPrefWidth(15);
         pieChart.setPrefHeight(15);
-
-
 
         return pieChart;
     }

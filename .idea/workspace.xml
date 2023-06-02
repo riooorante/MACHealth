@@ -7,18 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="&quot;feat:ganti rumus BMI, tambah variabel konfirmasi untuk pengkondisian&quot;">
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/DATA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/DATA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/KonsumsiAir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/KonsumsiAir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Icon/Main.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +225,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685539291508</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard">
+      <created>1685680932182</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685680932182</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard">
+      <created>1685681150624</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685681150624</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -243,7 +251,8 @@
     <MESSAGE value="&quot;add comment&quot;" />
     <MESSAGE value="&quot;add class and method&quot;" />
     <MESSAGE value="&quot;feat:ganti rumus BMI, tambah variabel konfirmasi untuk pengkondisian&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;feat:ganti rumus BMI, tambah variabel konfirmasi untuk pengkondisian&quot;" />
+    <MESSAGE value="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
