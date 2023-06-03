@@ -7,7 +7,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
 import java.sql.*;
@@ -52,7 +55,7 @@ public class Elemen {
 
     public static PieChart pieChart(ArrayList<Double> arrayList) {
         int lastData = arrayList.size() - 1;
-        PieChart.Data max = new PieChart.Data("", 8);
+        PieChart.Data max = new PieChart.Data("", arrayList.size() == 0 ? 8 : arrayList.get(lastData) <= 8 ? 8 - arrayList.get(lastData) : 0);
         PieChart.Data minum = new PieChart.Data("", arrayList.size() == 0 ? 0 : arrayList.get(lastData) < 8 ? arrayList.get(lastData) : 8);
 
         PieChart pieChart = new PieChart();

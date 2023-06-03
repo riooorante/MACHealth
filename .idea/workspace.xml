@@ -7,13 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="feat:membuat method kategori, method saran, rectanglesum">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki kotak saran dan kotak kategori">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Print.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Print.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685759028651</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix:Memperbaiki kotak saran dan kotak kategori">
+      <created>1685764722292</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685764722292</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -269,7 +275,8 @@
     <MESSAGE value="fix:Memperbaiki Class KonsumsiAir.java dan membuat button minum di dashboard" />
     <MESSAGE value="fix:Memperbaiki pengkondisian di method pieChart" />
     <MESSAGE value="feat:membuat method kategori, method saran, rectanglesum" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:membuat method kategori, method saran, rectanglesum" />
+    <MESSAGE value="fix:Memperbaiki kotak saran dan kotak kategori" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki kotak saran dan kotak kategori" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

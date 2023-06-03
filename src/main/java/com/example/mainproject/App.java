@@ -139,7 +139,7 @@ public class App extends Application {
         btnNU.setOnAction(event -> {
             boolean konfirmasiregis = DATA.getICON() != null && !tfNama.getText().isBlank() && !tfUsername.getText().isBlank() && !tfpass.getText().isBlank() && (tfNama.getText().length() <= 15);
             if (konfirmasiregis) {
-                Registrasi registrasi = new Registrasi(tfNama.getText(), tfUsername.getText(), tfpass.getText());
+                Registrasi registrasi = new Registrasi(tfNama.getText().strip(), tfUsername.getText().strip(), tfpass.getText().strip());
                 if (registrasi.registrasi()) {
                     sceneLogin();
                 } else {
@@ -212,10 +212,10 @@ public class App extends Application {
         btnTekDar.setOnAction(event -> {
             boolean konfirmasikesehatan = !tfTekDar.getText().isBlank() && !tfGulDar.getText().isBlank() && !berat.getText().isBlank() && !tinggi.getText().isBlank();
             if (konfirmasikesehatan) {
-                int tekdar = Integer.parseInt(tfTekDar.getText());
-                int guldar = Integer.parseInt(tfGulDar.getText());
-                Double Tinggi = Double.parseDouble(tinggi.getText());
-                int Berat = Integer.parseInt(berat.getText());
+                int tekdar = Integer.parseInt(tfTekDar.getText().strip());
+                int guldar = Integer.parseInt(tfGulDar.getText().strip());
+                Double Tinggi = Double.parseDouble(tinggi.getText().strip());
+                int Berat = Integer.parseInt(berat.getText().strip());
                 UpdateKesehatan updateKesehatan = new UpdateKesehatan(tekdar, guldar, Tinggi, Berat);
                 try {
                     if (updateKesehatan.updateKesehatan()) {
@@ -315,14 +315,18 @@ public class App extends Application {
             dashboard();
         });
 
-        Button updatedata = new Button("DATA BARU");
+        Button updatedata = new Button("UPDATE DATA");
         updatedata.setOnAction(event -> {
             updateKesehatan();
         });
 
         Button summary = new Button("SUMMARY");
         summary.setOnAction(event -> {
-            summary();
+            boolean kondisi = data.datadiagram("KONSUMSI","KONSUMSI_AIR").size() != 0 && data.datadiagram("TEKANAN_DARAH","HISTORY").size() != 0;
+            if (kondisi){
+                summary();
+            }
+
         });
 
         Button logout = new Button("LOGOUT");
@@ -331,7 +335,7 @@ public class App extends Application {
         });
 
         VBox vBox1 = new VBox(20);
-        vBox1.setAlignment(Pos.CENTER_LEFT);
+        vBox1.setAlignment(Pos.CENTER);
         vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
@@ -407,7 +411,7 @@ public class App extends Application {
             dashboard();
         });
 
-        Button updatedata = new Button("DATA BARU");
+        Button updatedata = new Button("UPDATE DATA");
         updatedata.setOnAction(event -> {
             updateKesehatan();
         });
@@ -423,7 +427,7 @@ public class App extends Application {
         });
 
         VBox vBox1 = new VBox(20);
-        vBox1.setAlignment(Pos.CENTER_LEFT);
+        vBox1.setAlignment(Pos.CENTER);
         vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
