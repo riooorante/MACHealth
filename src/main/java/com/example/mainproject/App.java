@@ -365,6 +365,103 @@ public class App extends Application {
 
     private void summary() {
 
+        // Rectangle Profile
+        Image image = new Image(DATA.getICON());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        Label labelNama = new Label(DATA.getNAMA());
+        VBox vBox = new VBox(10);
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(imageView, labelNama);
+        Rectangle rectangle = new Rectangle(300, 180);
+        rectangle.setId("RecProfile");
+        rectangle.setArcHeight(35);
+        rectangle.setArcWidth(35);
+        StackPane stackPane = new StackPane(rectangle, vBox);
+
+        // Rectangle Minum
+
+        DATA data = new DATA();
+        Rectangle recMinum = new Rectangle(300, 150);
+        recMinum.setId("RecButton");
+        recMinum.setArcWidth(35);
+        recMinum.setArcHeight(35);
+        Button btnminum = new Button("Minum");
+        btnminum.setAlignment(Pos.CENTER);
+        btnminum.setId("Recminum");
+
+        btnminum.setStyle("-fx-background-radius: 50;");
+        HBox hBoxminum = new HBox(pieChart(data.datadiagram("KONSUMSI","KONSUMSI_AIR")), btnminum);
+        hBoxminum.setAlignment(Pos.CENTER);
+        StackPane stackminum = new StackPane(recMinum,hBoxminum);
+
+        // Rectangle Button
+        Rectangle rectangle1 = new Rectangle(300, 410);
+        rectangle1.setArcWidth(35);
+        rectangle1.setArcHeight(35);
+        rectangle1.setId("RecButton");
+
+        Button dashboard = new Button("DASHBOARD");
+        dashboard.setOnAction(event -> {
+            dashboard();
+        });
+
+        Button updatedata = new Button("DATA BARU");
+        updatedata.setOnAction(event -> {
+            updateKesehatan();
+        });
+
+        Button summary = new Button("SUMMARY");
+        summary.setOnAction(event -> {
+            summary();
+        });
+
+        Button logout = new Button("LOGOUT");
+        logout.setOnAction(event -> {
+            sceneLogin();
+        });
+
+        VBox vBox1 = new VBox(20);
+        vBox1.setAlignment(Pos.CENTER_LEFT);
+        vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
+
+        StackPane stackPane1 = new StackPane(rectangle1, vBox1);
+
+        VBox Scroll = new VBox(10,stackPane, stackminum,stackPane1);
+        Scroll.setPadding(new Insets(20));
+
+        double BMI = (double) data.datadiagram("BMI","HISTORY").get(data.datadiagram("BMI","HISTORY").size()-1);
+        double TekananDarah = (double) data.datadiagram("TEKANAN_DARAH","HISTORY").get(data.datadiagram("TEKANAN_DARAH","HISTORY").size()-1);
+        double GulaDarah = (double) data.datadiagram("GULA_DARAH", "HISTORY").get(data.datadiagram("GULA_DARAH", "HISTORY").size()-1);
+        double KonsumsiAir = (double) data.datadiagram("KONSUMSI", "KONSUMSI_AIR").get(data.datadiagram("KONSUMSI", "KONSUMSI_AIR").size()-1);
+        HBox recsum = new HBox(10,rectanglesum("BMI", BMI),
+                rectanglesum("Tekanan Darah", TekananDarah),
+                rectanglesum("Gula Darah",GulaDarah),
+                rectanglesum("Konsumsi Air",KonsumsiAir));
+        recsum.setAlignment(Pos.CENTER);
+        VBox vsum = new VBox(10);
+        try {
+            vsum.getChildren().addAll(recsum,saran(BMI,TekananDarah,GulaDarah,KonsumsiAir));
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        vsum.setPadding(new Insets(30,10,30,10));
+
+        // Grid
+        GridPane gridPane = new GridPane();
+        ColumnConstraints column0 = new ColumnConstraints(340);
+        ColumnConstraints column1 = new ColumnConstraints(1060);
+        gridPane.getColumnConstraints().addAll(column0, column1);
+        gridPane.add(Scroll, 0, 0);
+        gridPane.add(vsum, 1, 0);
+
+        // Set Scene
+        Scene root = new Scene(gridPane, 1400, 800);
+        root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
+        stage.setScene(root);
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
