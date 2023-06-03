@@ -90,7 +90,7 @@ Label {
     -fx-stroke: rgb(255, 115, 0);
 }
 .chart-plot-background {
-    -fx-background-color: #121210;
+    -fx-background-color: #0b0b0a;
 }
 #dashRectangle{
 	-fx-fill:#0b0b0a;

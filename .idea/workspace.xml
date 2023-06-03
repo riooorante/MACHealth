@@ -7,12 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
-    </list>
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki nama button" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685778149488</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix:Memperbaiki nama button">
+      <created>1685783888991</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685783888991</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -283,7 +285,8 @@
     <MESSAGE value="feat:membuat method kategori, method saran, rectanglesum" />
     <MESSAGE value="fix:Memperbaiki kotak saran dan kotak kategori" />
     <MESSAGE value="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;" />
+    <MESSAGE value="fix:Memperbaiki nama button" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki nama button" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
