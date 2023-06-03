@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class UpdateKesehatan extends Database {
 
-    public UpdateKesehatan(Integer tekananDarah, Integer gulaDarah, Integer tinggi, Integer berat) {
+    public UpdateKesehatan(Integer tekananDarah, Integer gulaDarah, Double tinggi, Integer berat) {
         super(tekananDarah, gulaDarah, tinggi, berat);
     }
 

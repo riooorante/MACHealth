@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public abstract class Database {
-    private Integer tekananDarah, gulaDarah, tinggi, berat;
+    private Integer tekananDarah, gulaDarah, berat;
+    private Double tinggi;
     private String name, username, password;
 
     public Integer getTekananDarah() {
@@ -16,7 +17,7 @@ public abstract class Database {
         return gulaDarah;
     }
 
-    public Integer getTinggi() {
+    public Double getTinggi() {
         return tinggi;
     }
 
@@ -42,7 +43,7 @@ public abstract class Database {
         this.password = password;
     }
 
-    public Database(Integer tekananDarah, Integer gulaDarah, Integer tinggi, Integer berat) {
+    public Database(Integer tekananDarah, Integer gulaDarah, Double tinggi, Integer berat) {
         this.tekananDarah = tekananDarah;
         this.gulaDarah = gulaDarah;
         this.tinggi = tinggi/100;
@@ -59,10 +60,11 @@ public abstract class Database {
     public void inputData(Integer userid) {
         try {
             String queryinput = "INSERT INTO HISTORY (IDUSER,TEKANAN_DARAH,BMI,GULA_DARAH) VALUES (?,?,?,?)";
+            double BMI = (getBerat() / Math.pow(getTinggi(),2));
             PreparedStatement statementinput = connection().prepareStatement(queryinput);
             statementinput.setInt(1, userid);
             statementinput.setInt(2, getTekananDarah());
-            statementinput.setInt(3, (getBerat() / (getTinggi() * getTinggi())));
+            statementinput.setDouble(3, BMI);
             statementinput.setInt(4, getGulaDarah());
             statementinput.executeUpdate();
         } catch (SQLException e) {

@@ -16,8 +16,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-import static com.example.mainproject.Elemen.dashRectangle;
-import static com.example.mainproject.Elemen.pieChart;
+import static com.example.mainproject.Elemen.*;
 
 public class App extends Application {
     private Stage stage;
@@ -215,7 +214,7 @@ public class App extends Application {
             if (konfirmasikesehatan) {
                 int tekdar = Integer.parseInt(tfTekDar.getText());
                 int guldar = Integer.parseInt(tfGulDar.getText());
-                int Tinggi = Integer.parseInt(tinggi.getText());
+                Double Tinggi = Double.parseDouble(tinggi.getText());
                 int Berat = Integer.parseInt(berat.getText());
                 UpdateKesehatan updateKesehatan = new UpdateKesehatan(tekdar, guldar, Tinggi, Berat);
                 try {
@@ -302,6 +301,7 @@ public class App extends Application {
         });
         btnminum.setStyle("-fx-background-radius: 50;");
         HBox hBoxminum = new HBox(pieChart(data.datadiagram("KONSUMSI","KONSUMSI_AIR")), btnminum);
+        hBoxminum.setAlignment(Pos.CENTER);
         StackPane stackminum = new StackPane(recMinum,hBoxminum);
 
         // Rectangle Button
@@ -331,7 +331,7 @@ public class App extends Application {
         });
 
         VBox vBox1 = new VBox(20);
-        vBox1.setAlignment(Pos.CENTER);
+        vBox1.setAlignment(Pos.CENTER_LEFT);
         vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
@@ -363,38 +363,8 @@ public class App extends Application {
         stage.setScene(root);
     }
 
-    public static void summary() {
-//        Rectangle rectangle4 = new Rectangle(300, 100);
-//        rectangle1.setArcWidth(35);
-//        rectangle1.setArcHeight(35);
-//        rectangle1.setId("RecSummary");
-//        System.out.println("Summary");
-//
-//        Label label = new Label("Summary");
-//        TextField tfTekDar = new TextField();
-//        tfTekDar.setPromptText("Tekanan Darah");
-//        tfTekDar.setId("tfREG");
-//
-//        TextField tfGulDar = new TextField();
-//        tfGulDar.setPromptText("Gula Darah");
-//        tfGulDar.setId("tfREG");
-//
-//        TextField berat = new TextField();
-//        berat.setPromptText("Berat");
-//        berat.setId("TBBB");
-//
-//        TextField tinggi = new TextField();
-//        tinggi.setPromptText("Tinggi");
-//        tinggi.setId("TBBB");
-//
-//        HBox hBox = new HBox(10);
-//        hBox.getChildren().add(ractangle4);
-//
-//        Scene root = new Scene(hBox, 1400, 800);
-//        root.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
-//        stage.setScene(root);
-//        vBox.requestFocus();
-    }
+    private void summary() {
+
     public static void main(String[] args) {
         launch(args);
     }

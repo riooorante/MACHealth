@@ -103,7 +103,7 @@ PieChart{
 
 
 .data0 {
-    -fx-pie-color: #4a41cf;
+    -fx-pie-color: #45cef0;
 }
 .data1 {
     -fx-pie-color: #073571;
@@ -118,4 +118,12 @@ PieChart{
 	-fx-max-height:80px;
 	-fx-font-size: 20px;
     -fx-font-weight:bold;
+}
+#Saran{
+	-fx-font-size: 20px;
+	-fx-background-color: #2a2a2a;
+}
+#SUM{
+	-fx-fill: #1d1d1d;
+	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
 }
