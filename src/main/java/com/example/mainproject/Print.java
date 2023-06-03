@@ -5,5 +5,7 @@ public class Print {
         for (int i = 0 ; i < 100;i++){
             System.out.println("HBD");
         }
+        String pesan = "HALO";
+        System.out.println(pesan.length());
     }
 }

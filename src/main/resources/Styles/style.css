@@ -120,10 +120,19 @@ PieChart{
     -fx-font-weight:bold;
 }
 #Saran{
-	-fx-font-size: 20px;
-	-fx-background-color: #2a2a2a;
+	-fx-font-size: 25px;
+	-fx-background-color: #9e4241;
 }
 #SUM{
 	-fx-fill: #1d1d1d;
 	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
+}
+
+#LabelSaran{
+	-fx-font-size: 40px;
+	-fx-font-weight:bold;	
+}
+
+#REC{
+	-fx-fill: #de8820;
 }

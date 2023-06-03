@@ -6,12 +6,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 
 import java.sql.*;
@@ -71,10 +67,16 @@ public class Elemen {
         Label Nilai = new Label(String.format("%d",(int) angka));
         Nilai.setStyle("-fx-font-size:40px;");
         Label Kategori = new Label(kategori);
+        Kategori.setAlignment(Pos.CENTER);
         Label Type = new Label(kategori(kategori,angka));
+        Rectangle rec = new Rectangle(70,55);
+        rec.setArcWidth(35);
+        rec.setArcHeight(35);
+        rec.setId("REC");
+        StackPane stack = new StackPane(rec,Nilai);
         VBox vBox = new VBox(5,Kategori,Type);
         vBox.setAlignment(Pos.CENTER);
-        HBox hBox = new HBox(10,Nilai,vBox);
+        HBox hBox = new HBox(10,stack,vBox);
         hBox.setAlignment(Pos.CENTER);
         Rectangle rectangle = new Rectangle(230, 180);
         rectangle.setArcWidth(35);
@@ -87,7 +89,7 @@ public class Elemen {
     public static StackPane saran(double bmi, double tekdar, double guldar, double konsumsi) throws SQLException {
         String[] list = {kategori("BMI",bmi), kategori("Tekanan Darah",tekdar), kategori("Gula Darah",guldar), kategori("Konsumsi Air", konsumsi)};
         FlowPane flowPane = new FlowPane();
-        ArrayList<Button> listButton = new ArrayList<>();
+        ArrayList<Label> listButton = new ArrayList<>();
         for (String kategori : list){
             Connection connection = DriverManager.getConnection("jdbc:sqlite:" + "D:/Programming/Java/MACHealth/src/main/resources/Database/MACHealth.db");
             String query = String.format("SELECT * FROM SARAN WHERE KATEGORI = '%s'", kategori);
@@ -95,26 +97,34 @@ public class Elemen {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String pesan = resultSet.getString("SARAN");
-                Button button = new Button(pesan);
-                button.setPrefSize(20,pesan.length());
-                button.setId("Saran");
-                listButton.add(button);
+                Label label = new Label(pesan);
+                label.setId("Saran");
+                listButton.add(label);
             }
         }
         flowPane.getChildren().addAll(listButton);
         flowPane.setAlignment(Pos.CENTER);
         flowPane.setHgap(10);
         flowPane.setVgap(10);
-        flowPane.setPrefWidth(490);
-        flowPane.setPrefHeight(490);
+        flowPane.setMinHeight(300);
+        flowPane.setMaxHeight(300);
+        flowPane.setMinWidth(950);
+        flowPane.setMaxWidth(950);
+
+        Label labelsaran = new Label("SARAN");
+        labelsaran.setAlignment(Pos.BOTTOM_CENTER);
+        labelsaran.setId("LabelSaran");
 
 
         Rectangle rectangle = new Rectangle(1000,500 );
-        StackPane stackPane = new StackPane(rectangle,flowPane);
         rectangle.setArcWidth(35);
         rectangle.setArcHeight(35);
         rectangle.setId("SUM");
 
+        VBox vBox = new VBox(10,labelsaran,flowPane);
+        vBox.setAlignment(Pos.CENTER);
+
+        StackPane stackPane = new StackPane(rectangle,vBox);
         StackPane.setAlignment(rectangle, Pos.CENTER);
         StackPane.setAlignment(flowPane, Pos.TOP_CENTER);
         stackPane.setPadding(new Insets(0,10,10,10));
