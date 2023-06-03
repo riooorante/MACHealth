@@ -41,7 +41,7 @@ public class App extends Application {
         pspass.setId("Pass");
 
         Label warnlabel = new Label();
-        Button login = new Button("LOGIN");
+        Button login = new Button("MASUK");
         login.setId("Loginbutton");
         login.requestFocus();
         login.setOnAction(event -> {
@@ -54,7 +54,7 @@ public class App extends Application {
             }
         });
 
-        Button register = new Button("REGISTER");
+        Button register = new Button("Buat Akun");
         register.setId("Loginbutton");
         register.requestFocus();
         register.setOnAction(event -> {
@@ -320,11 +320,11 @@ public class App extends Application {
             updateKesehatan();
         });
 
-        Button summary = new Button("SUMMARY");
-        summary.setOnAction(event -> {
+        Button report = new Button("REPORT");
+        report.setOnAction(event -> {
             boolean kondisi = data.datadiagram("KONSUMSI","KONSUMSI_AIR").size() != 0 && data.datadiagram("TEKANAN_DARAH","HISTORY").size() != 0;
             if (kondisi){
-                summary();
+                report();
             }
 
         });
@@ -336,7 +336,7 @@ public class App extends Application {
 
         VBox vBox1 = new VBox(20);
         vBox1.setAlignment(Pos.CENTER);
-        vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
+        vBox1.getChildren().addAll(dashboard,updatedata, report, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
 
@@ -367,7 +367,7 @@ public class App extends Application {
         stage.setScene(root);
     }
 
-    private void summary() {
+    private void report() {
 
         // Rectangle Profile
         Image image = new Image(DATA.getICON());
@@ -416,9 +416,9 @@ public class App extends Application {
             updateKesehatan();
         });
 
-        Button summary = new Button("SUMMARY");
-        summary.setOnAction(event -> {
-            summary();
+        Button report = new Button("REPORT");
+        report.setOnAction(event -> {
+            report();
         });
 
         Button logout = new Button("LOGOUT");
@@ -428,7 +428,7 @@ public class App extends Application {
 
         VBox vBox1 = new VBox(20);
         vBox1.setAlignment(Pos.CENTER);
-        vBox1.getChildren().addAll(dashboard,updatedata, summary, logout);
+        vBox1.getChildren().addAll(dashboard,updatedata, report, logout);
 
         StackPane stackPane1 = new StackPane(rectangle1, vBox1);
 

@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki kotak saran dan kotak kategori">
+    <list default="true" id="8ea48615-5f5e-4bec-b30e-5576b86e1873" name="Changes" comment="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Elemen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mainproject/Print.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/MACHealth.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685764722292</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;">
+      <created>1685778149488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685778149488</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,7 +282,8 @@
     <MESSAGE value="fix:Memperbaiki pengkondisian di method pieChart" />
     <MESSAGE value="feat:membuat method kategori, method saran, rectanglesum" />
     <MESSAGE value="fix:Memperbaiki kotak saran dan kotak kategori" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki kotak saran dan kotak kategori" />
+    <MESSAGE value="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Memperbaiki piechart dan mengganti nama tombol &quot;Summary&quot; menjadi &quot;Reports&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
