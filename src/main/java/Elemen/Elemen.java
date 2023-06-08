@@ -17,8 +17,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Elemen {
-    public static String Kategori;
-    public static int nilai;
     public static LineChart<Number, Number> diagram(ArrayList<Double> doubles) {
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();

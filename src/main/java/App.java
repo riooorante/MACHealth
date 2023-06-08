@@ -326,11 +326,12 @@ public class App extends Application {
             if (kondisi){
                 report();
             }
-
         });
 
         Button logout = new Button("LOGOUT");
         logout.setOnAction(event -> {
+            DATA.setICON(null);
+            DATA.setID(null);
             sceneLogin();
         });
 
@@ -423,6 +424,8 @@ public class App extends Application {
 
         Button logout = new Button("LOGOUT");
         logout.setOnAction(event -> {
+            DATA.setICON(null);
+            DATA.setID(null);
             sceneLogin();
         });
 
@@ -444,6 +447,8 @@ public class App extends Application {
                 rectanglesum("Gula Darah",GulaDarah),
                 rectanglesum("Konsumsi Air",KonsumsiAir));
         recsum.setAlignment(Pos.CENTER);
+
+
         VBox vsum = new VBox(10);
         try {
             vsum.getChildren().addAll(recsum,saran(BMI,TekananDarah,GulaDarah,KonsumsiAir));
